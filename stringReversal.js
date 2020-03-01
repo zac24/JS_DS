@@ -5,6 +5,9 @@
 //   reverse('hello') === 'olleh'
 //   reverse('Greetings!') === '!sgniteerG'
 
+
+//============== Solution #1 ====================
+
 function reverse(str) {
   var arr = str
     .split("")
