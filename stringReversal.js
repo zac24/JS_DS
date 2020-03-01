@@ -17,12 +17,19 @@
 
 //=========== Solution #2 =======================
 
+// function reverse(str) {
+//   var reversed = "";
+//   for (var characters of str) {
+//     reversed = characters + reversed;
+//   }
+//   return reversed;
+// }
+
 function reverse(str) {
-  var reversed = "";
-  for (var characters of str) {
-    reversed = characters + reversed;
+    return str.split("").reduce((reversed, character) => {
+        return character + reversed;
+      }, "");
   }
-  return reversed;
-}
+
 
 console.log(reverse("apple"));
