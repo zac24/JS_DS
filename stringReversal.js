@@ -5,15 +5,24 @@
 //   reverse('hello') === 'olleh'
 //   reverse('Greetings!') === '!sgniteerG'
 
-
 //============== Solution #1 ====================
 
+// function reverse(str) {
+//   var arr = str
+//     .split("")
+//     .reverse()
+//     .join("");
+//   return arr;
+// }
+
+//=========== Solution #2 =======================
+
 function reverse(str) {
-  var arr = str
-    .split("")
-    .reverse()
-    .join("");
-  return arr;
+  var reversed = "";
+  for (var characters of str) {
+    reversed = characters + reversed;
+  }
+  return reversed;
 }
 
 console.log(reverse("apple"));
