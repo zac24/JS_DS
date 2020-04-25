@@ -9,14 +9,28 @@
 
 // ========== 2nd Solution =============
 
-function reverseInt(n) {
-    const reverseNum = n
-      .toString()
-      .split("")
-      .reverse()
-      .join("");
+function reverseInt(num) {
+    // const reverseNum = n
+    //   .toString()
+    //   .split("")
+    //   .reverse()
+    //   .join("");
   
-    return parseInt(reverseNum) * Math.sign(n);
+    // return parseInt(reverseNum) * Math.sign(n);
+    var a = num.toString();
+    var result = '';
+    for(var i=a.length-1; i>=0; i--){
+        if(a[i] !=='0' && a[i]!=='-'){
+            result = result+a[i];
+        }
+    }
+    
+    result = parseInt(result,10);
+    if(a[0] === '-'){
+        result = -1*result;
+    }
+    
+     return result;
   }
   
   // ========== 1st Solution ============
@@ -35,4 +49,4 @@ function reverseInt(n) {
   //   return parseInt(reverseNum);
   // }
   
-  console.log(reverseInt(-900));
+  console.log(reverseInt(500));
