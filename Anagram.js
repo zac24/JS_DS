@@ -35,15 +35,10 @@ console.log(
 // ================================================ Second Solution ===================================================
 
 function anagrams(firstString, secondString) {
-  var firstStrArray = cleanLowerCaseString(firstString);
-  var secondStrArray = cleanLowerCaseString(secondString);
-
-  if (firstStrArray.length !== secondStrArray.length) {
+  const firstCharMap = buildCharMap(firstString);
+  const secondCharMap = buildCharMap(secondString);
+  if (Object.keys(firstCharMap).length !== Object.keys(secondCharMap).length)
     return false;
-  }
-
-  const firstCharMap = buildCharMap(firstStrArray);
-  const secondCharMap = buildCharMap(secondStrArray);
 
   for (let char in firstCharMap) {
     if (firstCharMap[char] !== secondCharMap[char]) {
@@ -54,7 +49,9 @@ function anagrams(firstString, secondString) {
   return true;
 }
 
-function buildCharMap(inputArr) {
+function buildCharMap(inputString) {
+  var inputArr = cleanLowerCaseString(inputString);
+
   var resultObj = {};
   for (var character of inputArr) {
     if (resultObj[character]) {
