@@ -25,11 +25,25 @@
 //   return reversed;
 // }
 
-function reverse(str) {
-    return str.split("").reduce((reversed, character) => {
-        return character + reversed;
-      }, "");
-  }
+// function reverse(str) {
+//     return str.split("").reduce((reversed, character) => {
+//         return character + reversed;
+//       }, "");
+//   }
 
 
-console.log(reverse("apple"));
+// console.log(reverse("apple"));
+
+
+
+
+const reverseString = (str) => {
+  return str.split('').reverse().join('')
+  // return str.split('').reduce((reverseChar, character) => {
+  //   return character + reverseChar;
+  })
+}
+
+
+console.log("reverseString -> reverseString", reverseString('qwerty'))
+

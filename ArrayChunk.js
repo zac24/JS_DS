@@ -22,4 +22,16 @@ function chunk(array, size) {
   console.log("chunk -> lastChunk", lastChunk);
 }
 
-chunk([1, 2, 3, 4], 2);
+
+function chunk (array, size) {
+  let arr = [];
+  
+      for(i=0; i< array.length; i+=size){
+      arr.push(array.slice(i,i+size))
+  }
+  return arr;
+
+}
+
+
+console.log(chunk([1, 2, 3, 4, 5, 6, 7, 8], 3));
