@@ -67,24 +67,22 @@ console.log(
 //   return inputString.replace(/[^\w]/g, "").toLowerCase().split("");
 // }
 
-
-
 function Anagram(str1, str2) {
   if (str1 != undefined && str2 != undefined && str1.length == str2.length) {
-
-    var sortStr1 = Array.sort(str1.toLowerCase().replace(/[^\w]/g, '').toCharArray());
-    var sortStr2 = Array.sort(str2.toLowerCase().replace(/[^\w]/g, '').toCharArray());
+    var sortStr1 = Array.sort(
+      str1.toLowerCase().replace(/[^\w]/g, "").toCharArray()
+    );
+    var sortStr2 = Array.sort(
+      str2.toLowerCase().replace(/[^\w]/g, "").toCharArray()
+    );
     if (sortStr1 == sortStr2) {
       return true;
     } else {
-      
       return false;
     }
   } else {
     return false;
   }
-
-
 }
 
 console.log(
