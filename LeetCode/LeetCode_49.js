@@ -28,7 +28,7 @@ const groupAnagrams = (strs) => {
       ? map[sortedString].push(str)
       : (map[sortedString] = [str]);
   }
-
+m
   return Object.values(map);
 };
 
