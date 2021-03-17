@@ -43,3 +43,6 @@ function maxSumSubArray(arr, k) {
 let inputArray = [2, 3, 4, 1, 5]
 let k = 2
 console.log('The max sum of subArray =====>', maxSumSubArray(inputArray, k))
+
+// Time Complexity: O(N)
+// Space Complexity: O(1)
