@@ -7,40 +7,39 @@
 // Explanation: Subarray with maximum sum is [5, 1, 3].
 
 
-// ======= Brute force algorithm ======================
+// ========================= Brute force approach ===================
 
-function maxSumOfSubarrays(arr, K) {
-    var max = [];
-    for(var i = 0; i < arr.length - K+1; i++){
-        var sum = 0;
-        for(j=i; j<i+K; j++){
-            sum += arr[j];
-        }
-        max = sum > max ? sum : max 
-    }
-    return max;
-}
-
-
-// ================= Sliding Window approach ==========================
-
-// function maxSumOfSubarrays(arr, k) {
-//     var max = 0
-//     var start = 0 
-//     var sum = 0 
-//     for(let end = 0; end < arr.length; end++){
-//         sum += arr[end]
-//         if(end >= k -1){
-//             max = sum > max ? sum : max
-//             sum -= arr[start]
-//             start += 1
-
+// function maxSumSubArray (arr, k) {
+//     var max = 0;
+//     for(let i = 0; i < arr.length - k+1; i++){
+//         var sum = 0
+//         for(j=i; j<i+k; j++){
+//             sum += arr[j]
 //         }
+//         max = Math.max(max, sum)
 //     }
 //     return max
 // }
 
-let inputArray = [2, 1, 5, 1, 3, 2]
-let K=3
+// ========================= Window Sliding approach ===================
 
-console.log("average of subArrays ===>", maxSumOfSubarrays(inputArray, K))
+function maxSumSubArray(arr, k) {
+    var max = 0 
+    var start = 0
+    var subArraySum = 0
+    for(let end = 0; end < arr.length; end++){
+        subArraySum += arr[end]
+        if(end >= k-1){
+            max = Math.max(subArraySum, max)
+            subArraySum -= arr[start]
+            start += 1
+        }
+    }
+    return max 
+    
+}
+
+
+let inputArray = [2, 3, 4, 1, 5]
+let k = 2
+console.log('The max sum of subArray =====>', maxSumSubArray(inputArray, k))
