@@ -35,6 +35,9 @@ function smallestSubWithSum(arr, target) {
             start += 1
         }
     }
+    if (minLength === Infinity){
+        minLength = 0
+    }
     return minLength
 }
 
