@@ -48,5 +48,32 @@ function reverseInt(num) {
   
   //   return parseInt(reverseNum);
   // }
+
+// ============================== Another Solution ===================================
+
+//   var reverse = function(x) {
+//     var negative = x < 0 
+    
+//     var reverse = 0 
+    
+//     if(negative){
+//         x *= -1
+//     }
+//     var current = x
+//     while (current != 0){
+//         reverse = (reverse*10)+ (current%10)
+//         current = Math.floor(current/10)
+//     }
+    
+//     if (negative) {
+//         reverse *= -1 
+//     }
+    
+//     if (reverse > (2**31 -1) || reverse < (2**31 * -1)){
+//         return 0
+//     }
+    
+//     return reverse
+// };
   
   console.log(reverseInt(500));
