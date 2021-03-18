@@ -22,7 +22,6 @@
 
 function longestSubstringWithKUnique(str, k) {
     let arr = str.split('')
-    var unique = 0
     var longest = 0
     var start = 0
     var map = {}
@@ -41,12 +40,11 @@ function longestSubstringWithKUnique(str, k) {
             }
             start += 1
         }
-
         longest = Math.max (longest, end - start + 1)
     }
     return longest
 }
 
-let input = "cbbebi"
-let k = 3
+let input = "abcbbc"
+let k = 2
 console.log('The longest substring with k unique ======>', longestSubstringWithKUnique(input, k))
