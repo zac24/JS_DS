@@ -14,6 +14,29 @@ Output: 9
 Explanation: Replace the '0' at index 6, 9, and 10 to have the longest contiguous subarray of 1s having length 9.
  */
 
- function logestSubarrayWithOnes(arr, k){
-     
+ function longestSubarrayWithOnes(arr, k){
+     var maxLength = 0
+     var start = 0
+     var maxOnesCount = 0 
+     for (let end = 0; end < arr.length; end++){
+         let rightVal = arr[end]
+         if(rightVal === 1){
+             maxOnesCount += 1
+         }
+
+         if((end - start + 1) - maxOnesCount > k){
+             let leftVal = arr[start]
+            if(leftVal === 1){
+             maxOnesCount -= 1
+            }
+             start += 1
+         }
+
+         maxLength = Math.max(maxLength, end - start + 1)
+     }
+     return maxLength
  }
+
+ let input = [0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1]
+ let k = 3
+ console.log('The longest SubArray after replacement ======>', longestSubarrayWithOnes(input,k))
