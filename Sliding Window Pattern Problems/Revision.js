@@ -69,13 +69,13 @@ Explanation: Smallest subarrays with a sum greater than or equal to '8' are [3, 
 
  function smallestSubArrayOfGivenSum(input, k){
     var start = 0 
-    var length = 0
+    var length = Infinity
     var sum = 0
     for(let end = 0; end < input.length; end ++){
         sum += input[end]
 
-        if(sum >= k){
-            length = end- start 
+        while(sum >= k){
+            length = Math.min(length, end - start +1)
             sum -= input[start]
             start += 1
         }
