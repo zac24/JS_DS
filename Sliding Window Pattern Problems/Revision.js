@@ -67,23 +67,80 @@ Explanation: Smallest subarrays with a sum greater than or equal to '8' are [3, 
 
  */
 
- function smallestSubArrayOfGivenSum(input, k){
-    var start = 0 
-    var length = Infinity
-    var sum = 0
-    for(let end = 0; end < input.length; end ++){
-        sum += input[end]
+//  function smallestSubArrayOfGivenSum(input, k){
+//     var start = 0 
+//     var length = Infinity
+//     var sum = 0
+//     for(let end = 0; end < input.length; end ++){
+//         sum += input[end]
 
-        while(sum >= k){
-            length = Math.min(length, end - start +1)
-            sum -= input[start]
-            start += 1
+//         while(sum >= k){
+//             length = Math.min(length, end - start +1)
+//             sum -= input[start]
+//             start += 1
+//         }
+//     }
+//     return length
+//  }
+
+//  console.log('The smallest SubArray of given sum', smallestSubArrayOfGivenSum([2, 1, 5, 2, 3, 2], 7))
+//  console.log('The smallest SubArray of given sum', smallestSubArrayOfGivenSum([2, 1, 5, 2, 8], 7))
+//  console.log('The smallest SubArray of given sum', smallestSubArrayOfGivenSum([3, 4, 1, 1, 6], 8))
+
+
+ // ========================================================================================
+
+ /**
+  * Longest Substring with K Distinct Characters (medium)
+  * 
+  * Problem Statement #
+Given a string, find the length of the longest substring in it with no more than K distinct characters.
+
+Example 1:
+
+Input: String="araaci", K=2
+Output: 4
+Explanation: The longest substring with no more than '2' distinct characters is "araa".
+Example 2:
+
+Input: String="araaci", K=1
+Output: 2
+Explanation: The longest substring with no more than '1' distinct characters is "aa".
+Example 3:
+
+Input: String="cbbebi", K=3
+Output: 5
+Explanation: The longest substrings with no more than '3' distinct characters are "cbbeb" & "bbebi".
+  */
+
+  function longestSubstringWithKDistinct (input, k){
+      var start = 0 
+      var maxLength = 0 
+      var charMap = {}
+      for (end = 0; end < input.length; end++){
+        let rightChar = input[end]
+        if(!(rightChar in charMap)){
+          charMap[rightChar] = 1
         }
-    }
-    return length
- }
+        charMap[rightChar] += 1 
 
- console.log('The smallest SubArray of given sum', smallestSubArrayOfGivenSum([2, 1, 5, 2, 3, 2], 7))
- console.log('The smallest SubArray of given sum', smallestSubArrayOfGivenSum([2, 1, 5, 2, 8], 7))
- console.log('The smallest SubArray of given sum', smallestSubArrayOfGivenSum([3, 4, 1, 1, 6], 8))
+        if(Object.keys(charMap).length > k) {
+          let leftChar = input[start]
+          charMap[leftChar] -= 1
+          start += 1
+        }
+        maxLength = Math.max(maxLength, end - start + 1)
+      }
+    return maxLength
+  }
+
+  console.log('The longest SubArray with K distinct', longestSubstringWithKDistinct('araaci', 2))
+  console.log('The longest SubArray with K distinct', longestSubstringWithKDistinct('araaci', 1))
+  console.log('The longest SubArray with K distinct', longestSubstringWithKDistinct('cbbebi', 3))
+
+
+// =================================================================================================
+
+
+
  
