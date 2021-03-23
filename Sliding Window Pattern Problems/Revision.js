@@ -113,33 +113,83 @@ Output: 5
 Explanation: The longest substrings with no more than '3' distinct characters are "cbbeb" & "bbebi".
   */
 
-  function longestSubstringWithKDistinct (input, k){
-      var start = 0 
-      var maxLength = 0 
-      var charMap = {}
-      for (end = 0; end < input.length; end++){
-        let rightChar = input[end]
-        if(!(rightChar in charMap)){
-          charMap[rightChar] = 1
-        }
-        charMap[rightChar] += 1 
+  // function longestSubstringWithKDistinct (input, k){
+  //     var start = 0 
+  //     var maxLength = 0 
+  //     var charMap = {}
+  //     for (end = 0; end < input.length; end++){
+  //       let rightChar = input[end]
+  //       if(!(rightChar in charMap)){
+  //         charMap[rightChar] = 1
+  //       }
+  //       charMap[rightChar] += 1 
 
-        if(Object.keys(charMap).length > k) {
-          let leftChar = input[start]
-          charMap[leftChar] -= 1
-          start += 1
-        }
-        maxLength = Math.max(maxLength, end - start + 1)
-      }
-    return maxLength
-  }
+  //       if(Object.keys(charMap).length > k) {
+  //         let leftChar = input[start]
+  //         charMap[leftChar] -= 1
+  //         start += 1
+  //       }
+  //       maxLength = Math.max(maxLength, end - start + 1)
+  //     }
+  //   return maxLength
+  // }
 
-  console.log('The longest SubArray with K distinct', longestSubstringWithKDistinct('araaci', 2))
-  console.log('The longest SubArray with K distinct', longestSubstringWithKDistinct('araaci', 1))
-  console.log('The longest SubArray with K distinct', longestSubstringWithKDistinct('cbbebi', 3))
+  // console.log('The longest SubArray with K distinct', longestSubstringWithKDistinct('araaci', 2))
+  // console.log('The longest SubArray with K distinct', longestSubstringWithKDistinct('araaci', 1))
+  // console.log('The longest SubArray with K distinct', longestSubstringWithKDistinct('cbbebi', 3))
 
 
 // =================================================================================================
+
+/**
+ * No-repeat substring
+ * 
+ * 
+ * Problem Statement #
+Given a string, find the length of the longest substring which has no repeating characters.
+
+Example 1:
+
+Input: String="aabccbb"
+Output: 3
+Explanation: The longest substring without any repeating characters is "abc".
+Example 2:
+
+Input: String="abbbb"
+Output: 2
+Explanation: The longest substring without any repeating characters is "ab".
+Example 3:
+
+Input: String="abccde"
+Output: 3
+Explanation: Longest substrings without any repeating characters are "abc" & "cde".
+
+ */
+
+function longestNoRepeatSubstring (input){
+  var start = 0 
+  var maxLength = 0 
+  var charMap = {}
+  for (let end = 0; end < input.length; end++){
+    let rightChar = input[end]
+    if(!(rightChar in charMap)){
+      charMap[rightChar] = 1
+    }else {
+      let leftChar = input[start]
+      charMap[leftChar] -= 1
+      if(charMap[leftChar] === 0){
+        delete charMap[leftChar]
+      }
+      start = end
+    }
+    maxLength = Math.max(maxLength, end - start + 1)
+  }
+  return maxLength
+}
+
+  console.log('The longest no repeat substring', longestNoRepeatSubstring('aabccbb'))
+  console.log('The longest no repeat substring', longestNoRepeatSubstring('abbbb'))
+  console.log('The longest no repeat substring', longestNoRepeatSubstring('abccde'))
 
 
 
