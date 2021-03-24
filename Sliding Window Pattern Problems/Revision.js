@@ -166,30 +166,66 @@ Explanation: Longest substrings without any repeating characters are "abc" & "cd
 
  */
 
-function longestNoRepeatSubstring (input){
-  var start = 0 
-  var maxLength = 0 
-  var charMap = {}
-  for (let end = 0; end < input.length; end++){
-    let rightChar = input[end]
-    if(!(rightChar in charMap)){
-      charMap[rightChar] = 1
-    }else {
-      let leftChar = input[start]
-      charMap[leftChar] -= 1
-      if(charMap[leftChar] === 0){
-        delete charMap[leftChar]
-      }
-      start = end
-    }
-    maxLength = Math.max(maxLength, end - start + 1)
-  }
-  return maxLength
+// function longestNoRepeatSubstring (input){
+//   var start = 0 
+//   var maxLength = 0 
+//   var charMap = {}
+//   for (let end = 0; end < input.length; end++){
+//     let rightChar = input[end]
+//     if(!(rightChar in charMap)){
+//       charMap[rightChar] = 1
+//     }else {
+//       let leftChar = input[start]
+//       charMap[leftChar] -= 1
+//       if(charMap[leftChar] === 0){
+//         delete charMap[leftChar]
+//       }
+//       start = end
+//     }
+//     maxLength = Math.max(maxLength, end - start + 1)
+//   }
+//   return maxLength
+// }
+
+//   console.log('The longest no repeat substring', longestNoRepeatSubstring('aabccbb'))
+//   console.log('The longest no repeat substring', longestNoRepeatSubstring('abbbb'))
+//   console.log('The longest no repeat substring', longestNoRepeatSubstring('abccde'))
+
+
+// ================================================================================================
+
+/**
+ * 
+ * Longest Substring with Same Letters after Replacement (hard)
+ * 
+ * 
+ * Problem Statement #
+Given a string with lowercase letters only, if you are allowed to replace no more than ‘k’ letters with any letter, find the length of the longest substring having the same letters after replacement.
+
+Example 1:
+
+Input: String="aabccbb", k=2
+Output: 5
+Explanation: Replace the two 'c' with 'b' to have a longest repeating substring "bbbbb".
+Example 2:
+
+Input: String="abbcb", k=1
+Output: 4
+Explanation: Replace the 'c' with 'b' to have a longest repeating substring "bbbb".
+Example 3:
+
+Input: String="abccde", k=1
+Output: 3
+Explanation: Replace the 'b' or 'd' with 'c' to have the longest repeating substring "ccc".
+
+ */
+
+function longestSubstringAfterKReplacement (str, k) {
+  var start = 0
+  var 
 }
 
-  console.log('The longest no repeat substring', longestNoRepeatSubstring('aabccbb'))
-  console.log('The longest no repeat substring', longestNoRepeatSubstring('abbbb'))
-  console.log('The longest no repeat substring', longestNoRepeatSubstring('abccde'))
+
 
 
 
