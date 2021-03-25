@@ -222,10 +222,33 @@ Explanation: Replace the 'b' or 'd' with 'c' to have the longest repeating subst
 
 function longestSubstringAfterKReplacement (str, k) {
   var start = 0
-  var 
+  var maxLength = 0
+  var charMap = {}
+  var maxRepeatCount = 0
+  for(let end = 0; end < str.length; end++){
+    let rightChar = str[end]
+    if (!(rightChar in charMap)){
+      charMap[rightChar] = 0
+    }
+    charMap[rightChar] += 1
+    maxRepeatCount = Math.max(maxRepeatCount, charMap[rightChar])
+    if(end - start + 1 > maxRepeatCount + k){
+      let leftChar = str[start]
+      charMap[leftChar] -= 1
+      // if(charMap[leftChar] === 0){
+      //   delete charMap[leftChar]
+      // }
+      start += 1
+    }
+
+    maxLength = Math.max(maxLength, end - start + 1)
+  }
+  return maxLength
 }
 
-
+  console.log('The longest K repeat substring', longestSubstringAfterKReplacement('aabccbb', 2))
+  console.log('The longest K repeat substring', longestSubstringAfterKReplacement('abbcb', 1))
+  console.log('The longest K repeat substring', longestSubstringAfterKReplacement('abccde', 1))
 
 
 
