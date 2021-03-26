@@ -17,18 +17,18 @@ Example 1:
 Input: String="oidbcaf", Pattern="abc"
 Output: true
 Explanation: The string contains "bca" which is a permutation of the given pattern.
-Example 2:
 
+Example 2:
 Input: String="odicf", Pattern="dc"
 Output: false
 Explanation: No permutation of the pattern is present in the given string as a substring.
-Example 3:
 
+Example 3:
 Input: String="bcdxabcdy", Pattern="bcdyabcdx"
 Output: true
 Explanation: Both the string and the pattern are a permutation of each other.
-Example 4:
 
+Example 4:
 Input: String="aaacb", Pattern="abc"
 Output: true
 Explanation: The string contains "acb" which is a permutation of the given pattern.
@@ -38,6 +38,8 @@ Explanation: The string contains "acb" which is a permutation of the given patte
  function permutationInString(str, pattern){
      var start = 0 
      var patternCharMap = {}
+     var matched = 0
+     var charMap = {}
 
      for (let i = 0; i < pattern.length; i++){
          let rightChar = pattern[i]
@@ -49,19 +51,28 @@ Explanation: The string contains "acb" which is a permutation of the given patte
 
      for(let end = 0; end < str.length; end++){
          let rightChar = str[end]
-         if(rightChar in patternCharMap){
+         if(rightChar in patternCharMap ){
              patternCharMap[rightChar] -= 1
-             
-         }else {
-             start += 1
+             if(patternCharMap[rightChar] === 0) {
+                matched += 1
+             }
          }
-         if(patternCharMap[rightChar] === 0){
-            delete patternCharMap[rightChar]
-        }
+         if(matched === Object.keys(patternCharMap).length) {
+             return true
+         }
+
+         if(end >= pattern.length -1) {
+             let leftChar = str[start]
+             start += 1
+             if( leftChar in patternCharMap) {
+                 if(patternCharMap[leftChar]===0) {
+                     matched -= 1
+                 }
+                 patternCharMap[leftChar] += 1
+             }
+         }
      }
-     if(Object.keys(patternCharMap).length === 0){
-        return true
-    }
+     
      return false 
  }
 
