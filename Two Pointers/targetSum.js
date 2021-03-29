@@ -35,6 +35,7 @@ function targetSum(input, targetSum) {
             left += 1
         }
     }
+    return [-1, -1]
 }
 
 
