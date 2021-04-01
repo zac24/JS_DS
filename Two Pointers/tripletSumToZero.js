@@ -20,44 +20,7 @@ Explanation: There are two unique triplets whose sum is equal to zero.
 
 function tripletSumToZero (input) {
     var resulArray = []
-    let left = 1
-    let right = input.length - 1
-
-    let sortedInput = input.sort((a,b) => a-b)
-    console.log('Sorted Input =====>', sortedInput)
-
-    for(let i = 0; i < input.length; i++){
-        if(i > 0 && input[i] === input[i-1]){
-            continue;
-        }
-        searchPair(input, -input[i], i+1, resulArray)
-    }
-     return resulArray
-}
-
-function searchPair (input, target, left, resulArray) {
-    let right = input.length - 1
-
-    while(left < right) {
-        let currentSum = input[left] + input[right]
-        if(currentSum === target){
-            resulArray.push([-target, input[left], input[right]])
-            left += 1
-            right -= 1
-
-        while(left < right && input[left] === input[left -1]) {
-            left += 1
-        }
-        while(left < right && input[right] === input[right +1]){
-            right -= 1
-        }
-    }else if(target > currentSum){
-            left += 1
-        }else {
-            right -= 1
-            
-        }
-    }
+    
 }
 
 
