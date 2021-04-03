@@ -19,6 +19,26 @@ Explanation: There are four triplets whose sum is less than the target:
  */
 
 
-function tripletWithSmallerSum(input) {
-    
+function tripletWithSmallerSum(inputArr, target) {
+  console.log('==========>', inputArr)
+    var triplets = 0
+    var input = inputArr.sort()
+    for (let i = 0; i < input.length - 2; i++){
+      var left = i+1
+      var right = input.length - 1
+
+      while (left < right){
+        var currentSum = input[i] + input[left] + input[right]
+        if(currentSum < target) {
+          triplets += right - left
+          left += 1
+        }else {
+          right -= 1
+        }
+      }
+    }
+    return triplets
 }
+
+console.log('the number of triplets with smaller sum are ====>', tripletWithSmallerSum([-1, 0, 2, 3], 3))
+console.log('the number of triplets with smaller sum are ====>', tripletWithSmallerSum([-1, 4, 2, 1, 3], 5))
