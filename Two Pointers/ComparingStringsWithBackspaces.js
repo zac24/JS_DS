@@ -29,4 +29,33 @@ Explanation: After applying backspaces the strings become "xywrrmp" and "xywrrmp
  */
 
 
+function compareStringWithBackSpaces(first, second){
 
+    // console.log('getStringWithoutBackspace(first) ====>',getStringWithoutBackspace(first))
+    // console.log('getStringWithoutBackspace(second) ====>',getStringWithoutBackspace(second))
+
+    if(getStringWithoutBackspace(first) === getStringWithoutBackspace(second)){
+        return true
+    }
+
+    return false
+}
+
+function getStringWithoutBackspace(string) {
+    var resultArray = []
+    var str = string
+    for(let i = 0; i < string.length; i++){
+        if(string[i] === '#'){
+            resultArray.pop()
+        }else{
+            resultArray.push(str[i])
+        }
+    }
+
+   return resultArray.join('')
+} 
+
+console.log('Comparing string with Backspaces ====>',compareStringWithBackSpaces('xy#z', 'xzz#'))
+console.log('Comparing string with Backspaces ====>',compareStringWithBackSpaces('xy#z', 'xyz#'))
+console.log('Comparing string with Backspaces ====>',compareStringWithBackSpaces('xp#', 'xyz##'))
+console.log('Comparing string with Backspaces ====>',compareStringWithBackSpaces('xywrrmp', 'xywrrmu#p'))
