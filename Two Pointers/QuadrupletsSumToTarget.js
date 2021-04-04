@@ -42,19 +42,16 @@ function search_pair (input, first, second, target, resulArray) {
 
         if(currentSum === target){
             resulArray.push([input[first], input[second], input[left], input[right]])
-
             left += 1
             right -= 1
-        }
 
-        // while(left < right && input[left] === input[left+1]){
-        //     left += 1
-        // }
-        // while(left < right && input[right] === input[right-1]){
-        //     right -= 1
-        // }
-
-        if(currentSum < target){
+            while(left < right && input[left] === input[left-1]){
+                left += 1
+            }
+            while(left < right && input[right] === input[right+1]){
+                right -= 1
+            }
+        }else if(currentSum < target){
             left += 1
         }else {
             right -= 1
