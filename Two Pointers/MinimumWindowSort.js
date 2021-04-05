@@ -28,3 +28,22 @@ Explanation: The whole array needs to be sorted.
  * 
  */
 
+function minimumWindowSort(input){
+    var windowSize = Infinity
+    
+    for(let i = 0; i < input.length; i++){
+        var right = input.length - 1
+
+        if(input[i] > input[i+1]){
+            start = 
+        }
+    }
+
+}
+
+
+
+console.log('The minimum window sort for the input is ====>', minimumWindowSort([1, 2, 5, 3, 7, 10, 9, 12]))
+console.log('The minimum window sort for the input is ====>', minimumWindowSort([1, 3, 2, 0, -1, 7, 10]))
+console.log('The minimum window sort for the input is ====>', minimumWindowSort([1, 2, 3]))
+console.log('The minimum window sort for the input is ====>', minimumWindowSort([3, 2, 1]))
