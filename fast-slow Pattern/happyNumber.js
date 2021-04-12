@@ -13,11 +13,7 @@
 Input: 23   
 Output: true (23 is a happy number)  
 Explanations: Here are the steps to find out that 23 is a happy number:
-2^2 + 3 ^22
-​2
-​​ +3
-​2
-​​  = 4 + 9 = 13
+2^2 + 3^2 = 4 + 9 = 13
 1^2 + 3^21
 ​2
 ​​ +3
