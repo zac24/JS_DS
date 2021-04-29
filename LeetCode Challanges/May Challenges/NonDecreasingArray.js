@@ -44,4 +44,3 @@ let input2 = [3,4,2,3]
 console.log("Array will be nondecreasing?? ====>", nonDecreasing(input))
 console.log("Array will be nondecreasing?? ====>", nonDecreasing(input1))
 console.log("Array will be nondecreasing?? ====>", nonDecreasing(input2))// Solution is incorrect for this input, come back and fix it. 
-
