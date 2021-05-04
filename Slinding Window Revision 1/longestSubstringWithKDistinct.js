@@ -37,7 +37,7 @@ function longestSubstringWithKDistinct(input, k){
         }
         charMap[element] += 1
 
-        if(Object.keys(charMap).length > k){
+        while(Object.keys(charMap).length > k){
             const left = input[start]
             charMap[left] -= 1
             if(charMap[left] === 0){
