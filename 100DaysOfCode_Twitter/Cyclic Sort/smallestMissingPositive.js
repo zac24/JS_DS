@@ -25,9 +25,7 @@ function smallestMissingPositive(input){
         if(input[i] !== i + 1){
             return i + 1
         }
-        
     }
-
     return input.length + 1
 }
 
