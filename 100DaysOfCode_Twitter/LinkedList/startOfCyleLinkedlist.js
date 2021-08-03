@@ -1,7 +1,7 @@
 /**
- *
- * How do you check if a given linked list contains a cycle?
- *  
+ * 
+ * How do you find the starting node of the cycle?
+ * 
  */
 
 class Node {
@@ -11,19 +11,17 @@ class Node {
     }
 }
 
-function isCycleExist(head){
+function startOfCycleLinkedlist(head){
     let slow = head
-    let fast = head
 
-    while (fast !== null){
-        fast = fast.next.next
+    while(slow !== null ){
+        slow.visited = true
         slow = slow.next
 
-        if(fast === slow){
-            return true
+        if(slow.visited){
+            return slow.value
         }
     }
-
     return false
 }
 
@@ -34,5 +32,6 @@ head.next.next.next = new Node(4)
 head.next.next.next.next = new Node(5)
 head.next.next.next.next.next = head.next.next
 
+console.log ('The start of the cycle is', startOfCycleLinkedlist(head))
 
-console.log (`is the Single Linkedlist contains Cycle ==>`, isCycleExist(head))
+
