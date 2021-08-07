@@ -23,42 +23,39 @@ function printList(head) {
 }
 
 function reverseKElementSublist(head, k){
-    if(k === 0 || k === 1){
+    if(head === null || k === 0) {
         return head
     }
 
-    let current = head 
+    let current = head
     let previous = null
-    
-    while(true){
-        let lastNodeOfPreviousPart = previous
-        let lastNodeOfSublist = current
 
-        let i = 0
-        let next = null 
+    while(true) {
+        const lastNodeOfPreviousPart = previous 
+        const lastNodeOfSublist = current
+        let next = null
+        let i = 0 
+
         while(current !== null && i < k){
             next = current.next
             current.next = previous
             previous = current
             current = next
             i += 1
-        }
-
+        }   
         if(lastNodeOfPreviousPart !== null){
-            lastNodeOfPreviousPart = previous
-        }else {
+            lastNodeOfPreviousPart.next = previous
+        }else{
             head = previous
         }
 
         lastNodeOfSublist.next = current
 
         if(current === null){
-            break; 
+            break
         }
-
-        previous = lastNodeOfSublist 
+        previous = lastNodeOfSublist
     }
-
     return head
 
 }
