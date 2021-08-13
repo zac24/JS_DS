@@ -39,7 +39,7 @@ class Node{
 //     let current = list
 
 //     while(current !== null){
-//         next = current.next
+//         let next = current.next
 //         current.next = prev
 //         prev = current
 //         current = next
