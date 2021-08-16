@@ -14,25 +14,50 @@ class Node{
     }
 }
 
-function getIntersectionNode(headA, headB){
+// function getIntersectionNode(headA, headB){
+// if(headA === null || headB === null){
+//     return null
+// }
+//     let listA = headA
+//     let listB = headB
 
+//     while(listA !== null){
+//         listA.visited = true 
+//         listA = listA.next
+//     }
+
+//     while(listB !== null){
+//         if(listB.visited === true){
+//             return listB
+//         }
+//         listB = listB.next  
+//     }
+
+//     return null 
+// }
+
+function getIntersectionNode (headA, headB){
+    if(headA === null || headB === null){
+        return null
+    }
     let listA = headA
     let listB = headB
 
-    while(listA !== null){
-        listA.visited = true 
+    while(listA !== listB){
         listA = listA.next
-    }
-
-    while(listB !== null){
-        if(listB.visited === true){
-            return listB
-        }
         listB = listB.next
+        
+        if(listA === listB){
+            return listA
+        } 
+        if(listA === null){
+            listA = headB
+        }
+        if(listB === null){
+            listB = headA
+        }
     }
-
-    return null 
-
+    return listA
 }
 
 let list1 = new Node(4)
