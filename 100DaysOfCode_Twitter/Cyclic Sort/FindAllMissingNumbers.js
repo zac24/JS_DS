@@ -35,5 +35,4 @@ function findMissingNumbers(input){
 }
 
 let input = [2, 3, 1, 8, 2, 3, 5, 1] 
-
 console.log(`The missing Numbers from array ${input}`, findMissingNumbers(input))
