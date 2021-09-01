@@ -54,5 +54,5 @@ function fruitsInBasket(inputArr) {
 let input = ['A', 'B', 'C', 'A', 'C']
 let input1 = ['A', 'B', 'C', 'B', 'B', 'C']
 
-console.log("The longest subarray with K unique", fruitsInBasket(input))
-console.log("The longest subarray with K unique", fruitsInBasket(input1))
+console.log("max fruits in a basket", fruitsInBasket(input))
+console.log("max fruits in a basket", fruitsInBasket(input1))
