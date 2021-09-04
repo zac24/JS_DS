@@ -24,7 +24,7 @@ Explanation: The triplet [1, 1, 1] has the closest sum to the target.
 
 
 
-function tripletSumCloseToZero(inputArr, target){
+function tripletSumCloseToTarget(inputArr, target){
     var input = inputArr.sort() 
     var smallestDifference = Infinity
     for (let i = 0; i < input.length; i++) {
@@ -52,8 +52,8 @@ let input = [-2, 0, 1, 2], target = 2
 let input1 = [-3, -1, 1, 2], target1 = 1 
 let input2 = [1, 0, 1, 1], target2 = 100
 
-console.log(`triplet Sum close to Zero for input: ${input} and target ${target} is`, tripletSumCloseToZero(input, target))
-console.log(`triplet Sum close to Zero for input: ${input1} and target ${target1} is`, tripletSumCloseToZero(input1, target1))
-console.log(`triplet Sum close to Zero for input: ${input2} and target ${target2} is`, tripletSumCloseToZero(input2, target2))
+console.log(`triplet Sum close to Zero for input: ${input} and target ${target} is`, tripletSumCloseToTarget(input, target))
+console.log(`triplet Sum close to Zero for input: ${input1} and target ${target1} is`, tripletSumCloseToTarget(input1, target1))
+console.log(`triplet Sum close to Zero for input: ${input2} and target ${target2} is`, tripletSumCloseToTarget(input2, target2))
 
 
