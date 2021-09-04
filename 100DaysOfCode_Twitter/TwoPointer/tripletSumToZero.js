@@ -20,7 +20,6 @@ function tripletSumToZero (inputArr){
     for (var i = 0; i < input.length; i++){
         if(i > 0 && input[i] === input[i-1])
         continue
-
         findTriplet(input, i+1, -input[i], result)
     }
     return result
@@ -35,7 +34,6 @@ function findTriplet(input, left, target, result){
             result.push([-sum, input[left], input[right]])
             left += 1
             right -= 1
-
             while(right > left && input[left] === input[left - 1]){
                 left += 1
             }
