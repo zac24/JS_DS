@@ -12,18 +12,18 @@ class Node {
     }
 }   
 
-function hasCycle(head) {
-    let slow = head
+function hasCycle(head){
+    let slow = head 
     let fast = head
 
-    while(slow !== null && fast.next !== null){
+    while(fast !== null && fast !== null){
         slow = slow.next
-        fast = slow.next.next
+        fast = fast.next.next
         if(slow === fast){
             return true
         }
     }
-    return false 
+    return false
 }
 
 /**
