@@ -31,7 +31,6 @@ head.next.next = new Node(3);
 head.next.next.next = new Node(4);
 head.next.next.next.next = new Node(5);
 head.next.next.next.next.next = new Node(6);
-// console.log(`The start of the LinkedList Cycle`, startOfLinkedListCycle(head))
 
 head.next.next.next.next.next.next = head.next.next;
 console.log(`The start of the LinkedList Cycle`, startOfLinkedListCycle(head))
