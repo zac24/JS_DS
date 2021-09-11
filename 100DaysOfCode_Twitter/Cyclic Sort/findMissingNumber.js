@@ -5,6 +5,10 @@
  * We are given an array containing ‘n’ distinct numbers taken from the range 0 to ‘n’. 
  * Since the array has only ‘n’ numbers out of the total ‘n+1’ numbers, find the missing number.
  * 
+ * Example 1:
+ * Input: [4, 0, 3, 1]
+ * Output: 2
+ * 
  */
 
 function findMissingNumber(input){
@@ -28,5 +32,4 @@ function findMissingNumber(input){
 }
 
 let input = [4, 0, 3, 1]
-
 console.log(`Missing Element for ${input}:  `, findMissingNumber(input))
