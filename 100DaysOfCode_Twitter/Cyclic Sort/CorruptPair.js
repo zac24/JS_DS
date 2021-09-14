@@ -18,24 +18,18 @@ function findCorruptPair(input) {
     let i = 0 
     let corruptNumbers = []
     while(i < input.length){
-        if(input[i] !== i + 1){
-            const j = input[i] - 1
-            if(input[i] !== input[j]){
-                [input[i], input[j]] = [input[j], input[i]]
+        const j = input[i] - 1
+        if(input[i] !== input[j]){
+            [input[i], input[j]] = [input[j], input[i]]
             }else {
-                corruptNumbers.push(input[i])
                 i += 1
             }
-        }else {
-            i += 1
         }
-    }
 
     for (let i = 0; i < input.length; i++) {
         if(input[i] !== i +1){
-            corruptNumbers.push(i+1)
-        }
-        
+            corruptNumbers.push(input[i], i+1)
+        }  
     }
     return corruptNumbers
 }
