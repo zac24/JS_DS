@@ -25,7 +25,6 @@ function findCorruptPair(input) {
                 i += 1
             }
         }
-
     for (let i = 0; i < input.length; i++) {
         if(input[i] !== i +1){
             corruptNumbers.push(input[i], i+1)
