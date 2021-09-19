@@ -40,11 +40,9 @@ class TreeNode{
 }
 
 function sortedListToBST(head){
-    console.log('The value of head ===>', head)
     if(!head){
         return null
     }
-
     if(!head.next){
         return new TreeNode(head.value)
     }
