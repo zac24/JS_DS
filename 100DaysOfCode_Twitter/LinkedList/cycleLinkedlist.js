@@ -34,5 +34,4 @@ head.next.next.next = new Node(4)
 head.next.next.next.next = new Node(5)
 head.next.next.next.next.next = head.next.next
 
-
 console.log (`is the Single Linkedlist contains Cycle ==>`, isCycleExist(head))

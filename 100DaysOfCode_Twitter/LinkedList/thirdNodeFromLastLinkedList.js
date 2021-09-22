@@ -1,6 +1,7 @@
 /**
  * 
  * How do you find the third node from the end in a singly linked list?
+ * Similarlly Nth Node can also be found. 
  * 
  */
 
