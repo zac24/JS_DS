@@ -11,6 +11,44 @@ class Node{
     }
 }
 
+// ============== Reverse the entire Linkedlist =========================
+
+// function palindrome(head){
+
+//     if(!head) return head
+
+//     let current = head
+//     let listToBeReversed = head
+//     let reverseLinkedlist = reverse(listToBeReversed)
+
+//     while(current !== null){
+//         if(current.value !== reverseLinkedlist.value){
+//             return false 
+//         }else {
+//             current = current.next
+//             reverseLinkedlist = reverseLinkedlist.next
+//         }
+//     }
+
+//     return true
+
+// }
+
+// function reverse(list){
+//     let prev = null
+//     let current = list
+
+//     while(current !== null){
+//         next = current.next
+//         current.next = prev
+//         prev = current
+//         current = next
+//     } 
+
+//     return prev
+// }
+
+// ======== using Stack ==========================
 
 function palindrome(head){
     let stack = []
@@ -20,7 +58,6 @@ function palindrome(head){
         stack.push(current.value)
         current = current.next
     }
-
     while(head !== null){
         const element = stack.pop()
 
@@ -33,6 +70,8 @@ function palindrome(head){
 
     return true
 }
+
+// ==================================
 
 const head = new Node('M')
 head.next = new Node('A')
